@@ -5,7 +5,20 @@
 {{> nav}}
 
 <section class="hero">
-  <div class="hero-bg" style="background-image:url('{{img.heroHome}}')"></div>
+  <div class="hero-cube-stage" aria-hidden="true">
+    <div class="hero-cube" id="heroCube">
+      <div class="hero-face hero-face-front">
+        <img src="/images/hero-living-ai.webp" alt="" fetchpriority="high">
+      </div>
+      <div class="hero-face hero-face-right">
+        <img src="/images/hero-dining-ai.webp" alt="">
+      </div>
+      <div class="hero-face hero-face-back">
+        <img src="/images/hero-lounge-ai.webp" alt="">
+      </div>
+    </div>
+  </div>
+  <div class="hero-shade"></div>
   <div class="container hero-content">
     <p class="eyebrow">Interior Design Studio · Delhi NCR</p>
     <h1>Interiors designed<br>to feel like <em>you</em>.</h1>
@@ -14,6 +27,19 @@
       <a href="/contact" class="btn btn-primary">Get Free Consultation</a>
       <a href="/projects" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,.6)">View Our Projects</a>
     </div>
+  </div>
+  <div class="hero-carousel-controls" aria-label="Hero image controls">
+    <button class="hero-arrow" id="heroPrev" type="button" aria-label="Previous interior">
+      <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+    </button>
+    <div class="hero-dots">
+      <button class="hero-dot is-active" type="button" data-hero-slide="0" aria-label="Show living room" aria-current="true"></button>
+      <button class="hero-dot" type="button" data-hero-slide="1" aria-label="Show dining room"></button>
+      <button class="hero-dot" type="button" data-hero-slide="2" aria-label="Show lounge"></button>
+    </div>
+    <button class="hero-arrow" id="heroNext" type="button" aria-label="Next interior">
+      <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+    </button>
   </div>
   <div class="hero-scroll"><span>Scroll</span><span class="line"></span></div>
 </section>

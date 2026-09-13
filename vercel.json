@@ -1,0 +1,15 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "functions": {
+    "api/index.ts": {
+      "includeFiles": "views/**"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/((?!css/|js/|images/).*)",
+      "destination": "/api/index"
+    }
+  ]
+}

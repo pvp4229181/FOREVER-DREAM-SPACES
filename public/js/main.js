@@ -1,14 +1,26 @@
 // Mobile nav toggle
 const navToggle = document.getElementById('navToggle');
 const mainNav = document.querySelector('.main-nav');
+const navBackdrop = document.getElementById('navBackdrop');
 if (navToggle && mainNav) {
-  navToggle.addEventListener('click', () => {
-    const isOpen = mainNav.classList.toggle('open');
+  const setNavOpen = (isOpen) => {
+    mainNav.classList.toggle('open', isOpen);
     navToggle.setAttribute('aria-expanded', String(isOpen));
+    if (navBackdrop) navBackdrop.classList.toggle('open', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  };
+  navToggle.addEventListener('click', () => {
+    setNavOpen(!mainNav.classList.contains('open'));
+  });
+  if (navBackdrop) {
+    navBackdrop.addEventListener('click', () => setNavOpen(false));
+  }
+  mainNav.querySelectorAll('li:not(.has-children) > a').forEach((link) => {
+    link.addEventListener('click', () => setNavOpen(false));
   });
   mainNav.querySelectorAll('li.has-children > a').forEach((link) => {
     link.addEventListener('click', (e) => {
-      if (window.innerWidth <= 980) {
+      if (window.innerWidth <= 1180) {
         e.preventDefault();
         link.parentElement.classList.toggle('open');
       }
@@ -95,4 +107,70 @@ if (header) {
   window.addEventListener('scroll', () => {
     header.style.boxShadow = window.scrollY > 10 ? '0 8px 24px -18px rgba(0,0,0,.4)' : 'none';
   });
+}
+
+// Hero cube carousel — recreates the reference's room-to-room 3D rotation.
+const heroCube = document.getElementById('heroCube');
+if (heroCube) {
+  const cubeStage = heroCube.parentElement;
+  const slides = [...document.querySelectorAll('[data-hero-slide]')];
+  const prev = document.getElementById('heroPrev');
+  const next = document.getElementById('heroNext');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let current = 0;
+  let direction = 1;
+  let timer;
+
+  const syncCubeDepth = () => {
+    // CSS viewport units include the scrollbar in some browsers. Measuring the
+    // clipped stage prevents a transformed cube face from adding page width.
+    heroCube.style.setProperty('--cube-depth', `${cubeStage.clientWidth / 2}px`);
+  };
+
+  const showHeroSlide = (index) => {
+    current = Math.max(0, Math.min(2, index));
+    heroCube.style.setProperty('--cube-angle', `${current * -90}deg`);
+    slides.forEach((dot, dotIndex) => {
+      const active = dotIndex === current;
+      dot.classList.toggle('is-active', active);
+      if (active) dot.setAttribute('aria-current', 'true');
+      else dot.removeAttribute('aria-current');
+    });
+  };
+
+  const startAutoplay = () => {
+    if (reduceMotion) return;
+    window.clearInterval(timer);
+    timer = window.setInterval(() => {
+      if (document.hidden) return;
+      if (current === 2) direction = -1;
+      if (current === 0) direction = 1;
+      showHeroSlide(current + direction);
+    }, 5200);
+  };
+
+  prev?.addEventListener('click', () => {
+    direction = -1;
+    showHeroSlide(current === 0 ? 2 : current - 1);
+    startAutoplay();
+  });
+  next?.addEventListener('click', () => {
+    direction = 1;
+    showHeroSlide(current === 2 ? 0 : current + 1);
+    startAutoplay();
+  });
+  slides.forEach((dot) => {
+    dot.addEventListener('click', () => {
+      showHeroSlide(Number(dot.dataset.heroSlide));
+      startAutoplay();
+    });
+  });
+
+  syncCubeDepth();
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(syncCubeDepth).observe(cubeStage);
+  } else {
+    window.addEventListener('resize', syncCubeDepth, { passive: true });
+  }
+  startAutoplay();
 }

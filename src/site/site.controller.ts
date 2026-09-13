@@ -7,7 +7,7 @@ import {
   BLOG_POSTS,
   TESTIMONIALS,
   STATS,
-} from '../common/site-data';
+} from '../common/site-data.js';
 
 // Shared data injected into every page render
 function base(active: string, title: string, description: string) {

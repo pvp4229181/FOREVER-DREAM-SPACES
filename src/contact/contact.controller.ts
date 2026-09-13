@@ -8,9 +8,9 @@ import {
   Res,
 } from '@nestjs/common';
 import type { Request, Response } from 'express';
-import { ContactService } from './contact.service';
-import { CreateContactDto } from './dto/create-contact.dto';
-import { BUSINESS, NAV_LINKS } from '../common/site-data';
+import { ContactService } from './contact.service.js';
+import { CreateContactDto } from './dto/create-contact.dto.js';
+import { BUSINESS, NAV_LINKS } from '../common/site-data.js';
 
 @Controller()
 export class ContactController {

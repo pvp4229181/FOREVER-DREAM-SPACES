@@ -23,3 +23,8 @@ Thumbs.db
 
 # Coverage
 coverage/
+
+.vercel
+.codex-video-frames/
+.responsive-*
+.chrome-*
