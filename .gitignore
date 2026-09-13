@@ -27,4 +27,5 @@ coverage/
 .vercel
 .codex-video-frames/
 .responsive-*
+.popup-*-check.png
 .chrome-*
