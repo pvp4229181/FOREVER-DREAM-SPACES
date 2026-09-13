@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>{{> head}}</head>
+<body>
+{{> nav}}
+
+<section class="hero">
+  <div class="hero-bg" style="background-image:url('{{img.heroHome}}')"></div>
+  <div class="container hero-content">
+    <p class="eyebrow">Interior Design Studio · Delhi NCR</p>
+    <h1>Interiors designed<br>to feel like <em>you</em>.</h1>
+    <p class="lead">Forever Dream Spaces creates warm, functional and beautiful residential &amp; commercial interiors — from concept to the final finishing touch.</p>
+    <div class="hero-actions">
+      <a href="/contact" class="btn btn-primary">Get Free Consultation</a>
+      <a href="/projects" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,.6)">View Our Projects</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span><span class="line"></span></div>
+</section>
+
+<div class="stats-strip">
+  <div class="container stats-grid">
+    {{#each stats}}
+    <div class="reveal in-view"><div class="num">{{value}}</div><div class="label">{{label}}</div></div>
+    {{/each}}
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="two-col">
+      <div class="reveal">
+        <div class="about-media">
+          <img src="{{img.heroAbout}}" alt="Interior design studio at work" loading="lazy">
+        </div>
+      </div>
+      <div class="reveal">
+        <p class="eyebrow">Who We Are</p>
+        <h2>A design studio obsessed with how you actually live.</h2>
+        <p>For over nine years, Forever Dream Spaces has partnered with families and businesses across Delhi NCR to create interiors that balance beauty, function and personality — never a template, always a story.</p>
+        <ul class="check-list">
+          <li><i class="fa-solid fa-circle-check"></i> End-to-end design &amp; execution</li>
+          <li><i class="fa-solid fa-circle-check"></i> Transparent pricing, zero hidden costs</li>
+          <li><i class="fa-solid fa-circle-check"></i> Dedicated project manager for every home</li>
+        </ul>
+        <a href="/about" class="btn btn-outline" style="margin-top:10px">More About Us <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--paper-alt)">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow" style="justify-content:center">What We Do</p>
+      <h2>Design services built around your space</h2>
+      <p>Whether it's the home you live in or the workplace you build your business around, we design it with equal care.</p>
+    </div>
+    <div class="grid-3">
+      <div class="service-card reveal">
+        <div class="icon"><i class="fa-solid fa-couch"></i></div>
+        <h3>Residential Interiors</h3>
+        <p>Living rooms, bedrooms, kitchens and full-home makeovers designed around how your family lives.</p>
+        <a href="/services/residential-interior-design" class="more">Explore Residential <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card reveal">
+        <div class="icon"><i class="fa-solid fa-building"></i></div>
+        <h3>Commercial Interiors</h3>
+        <p>Offices, retail and hospitality spaces engineered for productivity, brand and experience.</p>
+        <a href="/services/commercial-interior-design" class="more">Explore Commercial <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card reveal">
+        <div class="icon"><i class="fa-solid fa-drafting-compass"></i></div>
+        <h3>Space Planning &amp; 3D Design</h3>
+        <p>Detailed layouts, mood boards and photorealistic 3D walkthroughs before a single wall is touched.</p>
+        <a href="/services" class="more">See All Services <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head reveal" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;max-width:none">
+      <div>
+        <p class="eyebrow">Recent Work</p>
+        <h2>Projects that speak for themselves</h2>
+      </div>
+      <a href="/projects" class="btn btn-outline">View All Projects</a>
+    </div>
+    <div class="grid-3">
+      {{#each projects}}
+      <a href="/projects/{{slug}}" class="project-card reveal">
+        <img src="{{image}}" alt="{{title}}" loading="lazy">
+        <div class="overlay">
+          <span class="tag">{{category}}</span>
+          <h3>{{title}}</h3>
+          <span class="loc"><i class="fa-solid fa-location-dot"></i> {{location}}</span>
+        </div>
+      </a>
+      {{/each}}
+    </div>
+  </div>
+</section>
+
+<section class="tone-dark">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow" style="color:#f0dfae;justify-content:center">Our Process</p>
+      <h2 style="color:#fff">From first conversation to final reveal</h2>
+    </div>
+    <div class="process-grid">
+      <div class="process-step reveal"><span class="step-num">01</span><h4>Discover</h4><p>We understand your lifestyle, brief and budget.</p></div>
+      <div class="process-step reveal"><span class="step-num">02</span><h4>Design</h4><p>Concept, mood boards and 3D visualisation.</p></div>
+      <div class="process-step reveal"><span class="step-num">03</span><h4>Refine</h4><p>Material selection and detailed execution drawings.</p></div>
+      <div class="process-step reveal"><span class="step-num">04</span><h4>Deliver</h4><p>On-site execution, quality checks and handover.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--paper-alt)">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow" style="justify-content:center">Testimonials</p>
+      <h2>What our clients say</h2>
+    </div>
+    <div class="testimonial-track">
+      {{#each testimonials}}
+      <div class="testimonial-card reveal">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p>&ldquo;{{text}}&rdquo;</p>
+        <div class="who">
+          <div class="avatar">{{name.[0]}}</div>
+          <div><div class="name">{{name}}</div><div class="role">{{role}}</div></div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head reveal" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;max-width:none">
+      <div><p class="eyebrow">From the Blog</p><h2>Ideas &amp; inspiration</h2></div>
+      <a href="/blog" class="btn btn-outline">Visit Blog</a>
+    </div>
+    <div class="grid-3">
+      {{#each blog}}
+      <a href="/blog/{{slug}}" class="blog-card reveal">
+        <img src="{{image}}" alt="{{title}}" loading="lazy">
+        <div class="body">
+          <div class="meta">{{date}}</div>
+          <h3>{{title}}</h3>
+          <span class="read-more">Read Article <i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+      </a>
+      {{/each}}
+    </div>
+  </div>
+</section>
+
+{{> footer}}
+<script src="/js/main.js"></script>
+</body>
+</html>

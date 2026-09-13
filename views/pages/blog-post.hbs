@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>{{> head}}</head>
+<body>
+{{> nav}}
+
+{{> page-hero image=post.image crumb=post.title eyebrow=post.date heading=post.title subtitle=post.excerpt}}
+
+<section>
+  <div class="container" style="max-width:820px">
+    <p>{{post.excerpt}} Interior design is never one-size-fits-all — it is a balance of function, mood and the small personal details that make a space feel lived-in rather than staged.</p>
+    <p>At Forever Dream Spaces, every project starts with listening: how do you use this room, at what time of day, with whom? Those answers shape everything from the floor plan to the final cushion.</p>
+    <h3>Key Takeaways</h3>
+    <ul class="check-list">
+      <li><i class="fa-solid fa-circle-check"></i> Start with function before aesthetics</li>
+      <li><i class="fa-solid fa-circle-check"></i> Let natural light guide your colour palette</li>
+      <li><i class="fa-solid fa-circle-check"></i> Invest in a few statement pieces rather than many small ones</li>
+      <li><i class="fa-solid fa-circle-check"></i> Layer lighting for morning, evening and entertaining</li>
+    </ul>
+    <p>Want to bring these ideas into your own home or office? Our design team would love to help.</p>
+    <a href="/contact" class="btn btn-primary">Get Free Consultation <i class="fa-solid fa-arrow-right"></i></a>
+  </div>
+</section>
+
+<section style="background:var(--paper-alt)">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow" style="justify-content:center">Keep Reading</p>
+      <h2>More from the Blog</h2>
+    </div>
+    <div class="grid-3" style="max-width:820px;margin:0 auto;grid-template-columns:repeat(2,1fr)">
+      {{#each related}}
+      <a href="/blog/{{slug}}" class="blog-card reveal">
+        <img src="{{image}}" alt="{{title}}" loading="lazy">
+        <div class="body">
+          <div class="meta">{{date}}</div>
+          <h3>{{title}}</h3>
+          <span class="read-more">Read Article <i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+      </a>
+      {{/each}}
+    </div>
+  </div>
+</section>
+
+{{> footer}}
+<script src="/js/main.js"></script>
+</body>
+</html>

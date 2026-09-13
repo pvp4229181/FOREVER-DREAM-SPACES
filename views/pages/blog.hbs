@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>{{> head}}</head>
+<body>
+{{> nav}}
+
+{{> page-hero image=img.heroBlog crumb="Blog" eyebrow="Journal" heading="Ideas, trends and design guides" subtitle="Practical interior design advice from the Forever Dream Spaces studio."}}
+
+<section>
+  <div class="container grid-3">
+    {{#each posts}}
+    <a href="/blog/{{slug}}" class="blog-card reveal">
+      <img src="{{image}}" alt="{{title}}" loading="lazy">
+      <div class="body">
+        <div class="meta">{{date}} · {{author}}</div>
+        <h3>{{title}}</h3>
+        <p>{{excerpt}}</p>
+        <span class="read-more">Read Article <i class="fa-solid fa-arrow-right"></i></span>
+      </div>
+    </a>
+    {{/each}}
+  </div>
+</section>
+
+{{> footer}}
+<script src="/js/main.js"></script>
+</body>
+</html>

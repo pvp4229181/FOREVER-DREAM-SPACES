@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>{{> head}}</head>
+<body>
+{{> nav}}
+
+{{> page-hero image=img.heroProjects crumb="Projects" eyebrow="Our Portfolio" heading="Projects that speak for themselves" subtitle="A showcase of residential and commercial interiors delivered across Delhi NCR."}}
+
+<section>
+  <div class="container">
+    <div class="filter-bar reveal">
+      <button data-filter="all" class="active">All</button>
+      <button data-filter="Residential">Residential</button>
+      <button data-filter="Commercial">Commercial</button>
+    </div>
+    <div class="grid-3">
+      {{#each projects}}
+      <a href="/projects/{{slug}}" class="project-card reveal" data-category="{{category}}">
+        <img src="{{image}}" alt="{{title}}" loading="lazy">
+        <div class="overlay">
+          <span class="tag">{{category}}</span>
+          <h3>{{title}}</h3>
+          <span class="loc"><i class="fa-solid fa-location-dot"></i> {{location}}</span>
+        </div>
+      </a>
+      {{/each}}
+    </div>
+  </div>
+</section>
+
+{{> footer}}
+<script src="/js/main.js"></script>
+</body>
+</html>

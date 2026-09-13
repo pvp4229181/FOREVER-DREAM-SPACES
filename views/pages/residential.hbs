@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>{{> head}}</head>
+<body>
+{{> nav}}
+
+{{> page-hero image=img.heroResidential crumb="Residential Interior Design" eyebrow="Residential Interior Design" heading="A home that feels entirely yours" subtitle="We design comfortable, beautiful residential spaces — thinking through room function, colour, furniture and lighting so every corner feels intentional."}}
+
+<section>
+  <div class="container two-col">
+    <div class="reveal">
+      <p class="eyebrow">Interior Design For Residence</p>
+      <h2>Comfortable, beautiful spaces built around how you live</h2>
+      <p>Residential interior design is about creating a comfortable and beautiful space where you live. Our approach starts with understanding the daily rhythm of your household — how each room is used, who uses it, and when.</p>
+      <p>From there we plan room functionality, choose a colour palette that supports mood and comfort, treat furniture as functional art, and layer natural and artificial lighting to bring every space to life. Finally, we add the personal, decorative touches that make a house feel like home.</p>
+      <ul class="check-list">
+        <li><i class="fa-solid fa-circle-check"></i> Living rooms &amp; family lounges</li>
+        <li><i class="fa-solid fa-circle-check"></i> Master &amp; kids' bedrooms</li>
+        <li><i class="fa-solid fa-circle-check"></i> Modular kitchens &amp; dining spaces</li>
+        <li><i class="fa-solid fa-circle-check"></i> Full-home turnkey interiors</li>
+      </ul>
+    </div>
+    <div class="reveal">
+      <div class="about-media">
+        <img src="{{img.gallery.[0]}}" alt="Residential living room" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--paper-alt)">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow" style="justify-content:center">What We Consider</p>
+      <h2>The elements of great residential design</h2>
+    </div>
+    <div class="value-grid">
+      <div class="value-tile reveal"><i class="fa-solid fa-shapes"></i><h4>Room Functionality</h4><p>Planning every space around the activities it needs to support.</p></div>
+      <div class="value-tile reveal"><i class="fa-solid fa-palette"></i><h4>Colour Psychology</h4><p>Palettes chosen for mood, comfort and natural light conditions.</p></div>
+      <div class="value-tile reveal"><i class="fa-solid fa-couch"></i><h4>Furniture as Art</h4><p>Pieces selected for both function and visual character.</p></div>
+      <div class="value-tile reveal"><i class="fa-solid fa-lightbulb"></i><h4>Layered Lighting</h4><p>Natural and artificial lighting strategies for every hour of the day.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head reveal" style="max-width:none;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px">
+      <div><p class="eyebrow">Recent Homes</p><h2>Residential projects</h2></div>
+      <a href="/projects" class="btn btn-outline">View All Projects</a>
+    </div>
+    <div class="grid-3">
+      {{#each projects}}
+      <a href="/projects/{{slug}}" class="project-card reveal">
+        <img src="{{image}}" alt="{{title}}" loading="lazy">
+        <div class="overlay">
+          <span class="tag">{{category}}</span>
+          <h3>{{title}}</h3>
+          <span class="loc"><i class="fa-solid fa-location-dot"></i> {{location}}</span>
+        </div>
+      </a>
+      {{/each}}
+    </div>
+  </div>
+</section>
+
+{{> footer}}
+<script src="/js/main.js"></script>
+</body>
+</html>

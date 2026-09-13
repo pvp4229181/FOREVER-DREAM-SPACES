@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>{{> head}}</head>
+<body>
+{{> nav}}
+
+{{> page-hero image=img.heroAbout crumb="About Us" eyebrow="Our Story" heading="Designing dream spaces since day one" subtitle="We are a Delhi NCR based interior design studio crafting residential and commercial spaces with heart, precision and a deep respect for how people actually live and work."}}
+
+<section>
+  <div class="container two-col">
+    <div class="reveal">
+      <p class="eyebrow">Our Story</p>
+      <h2>Every great space starts with a good conversation.</h2>
+      <p>Forever Dream Spaces was founded on a simple belief — your home or workplace should feel entirely, unmistakably yours. What began as a small studio taking on residential projects across Greater Noida West has grown into a full-service interior design practice serving families and businesses across Delhi NCR.</p>
+      <p>We combine functional space planning, thoughtful material selection and honest project management to deliver interiors that are as practical as they are beautiful.</p>
+      <a href="/contact" class="btn btn-primary" style="margin-top:10px">Start Your Project <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    <div class="reveal">
+      <div class="about-media">
+        <img src="{{img.heroResidential}}" alt="Interior design detail" loading="lazy">
+        <div class="floating-card">
+          <div class="num">9+</div>
+          <div class="label">Years crafting interiors across Delhi NCR</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stats-strip">
+  <div class="container stats-grid">
+    {{#each stats}}
+    <div><div class="num">{{value}}</div><div class="label">{{label}}</div></div>
+    {{/each}}
+  </div>
+</div>
+
+<section style="background:var(--paper-alt)">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow" style="justify-content:center">Our Values</p>
+      <h2>What guides every project we take on</h2>
+    </div>
+    <div class="value-grid">
+      <div class="value-tile reveal"><i class="fa-solid fa-heart"></i><h4>Client First</h4><p>Every decision is filtered through what genuinely serves you.</p></div>
+      <div class="value-tile reveal"><i class="fa-solid fa-gem"></i><h4>Honest Craft</h4><p>Quality materials, skilled hands and no shortcuts.</p></div>
+      <div class="value-tile reveal"><i class="fa-solid fa-scale-balanced"></i><h4>Transparent Pricing</h4><p>Clear quotes, no hidden costs, ever.</p></div>
+      <div class="value-tile reveal"><i class="fa-solid fa-leaf"></i><h4>Sustainable Choices</h4><p>Locally sourced, durable materials wherever possible.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow" style="justify-content:center">Meet the Studio</p>
+      <h2>The people behind your project</h2>
+    </div>
+    <div class="grid-3">
+      <div class="team-card reveal">
+        <img src="{{img.team.[0]}}" alt="Principal Designer" loading="lazy">
+        <h4>Ayesha Khan</h4><div class="role">Principal Designer &amp; Founder</div>
+      </div>
+      <div class="team-card reveal">
+        <img src="{{img.team.[1]}}" alt="Head of Projects" loading="lazy">
+        <h4>Rohan Malhotra</h4><div class="role">Head of Project Execution</div>
+      </div>
+      <div class="team-card reveal">
+        <img src="{{img.team.[2]}}" alt="Design Lead" loading="lazy">
+        <h4>Neha Kapoor</h4><div class="role">Senior Interior Architect</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{> footer}}
+<script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<header class="site-header" id="siteHeader">
+  <div class="container header-row">
+    <a href="/" class="brand" aria-label="{{business.name}} home">
+      <img class="brand-mark" src="/images/logo.svg" width="40" height="40" alt="" aria-hidden="true">
+      <span class="brand-text">
+        <span class="brand-line1">FOREVER <strong>DREAM SPACES</strong></span>
+        <span class="brand-line2">— Interior Design —</span>
+      </span>
+    </a>
+
+    <nav class="main-nav" aria-label="Primary">
+      <ul>
+        {{#each nav}}
+        <li class="{{#if children}}has-children{{/if}} {{#if (eq key ../active)}}is-active{{/if}}">
+          <a href="{{href}}">{{label}}{{#if children}} <i class="fa-solid fa-chevron-down"></i>{{/if}}</a>
+          {{#if children}}
+          <ul class="dropdown">
+            {{#each children}}
+            <li><a href="{{href}}">{{label}}</a></li>
+            {{/each}}
+          </ul>
+          {{/if}}
+        </li>
+        {{/each}}
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a href="/contact" class="btn btn-primary btn-sm">Get Free Consultation</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
