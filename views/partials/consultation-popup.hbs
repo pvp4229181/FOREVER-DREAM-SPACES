@@ -1,0 +1,86 @@
+<div class="consult-popup" id="consultPopup" role="dialog" aria-modal="true" aria-labelledby="consultPopupTitle" aria-hidden="true">
+  <div class="consult-popup-card" role="document">
+    <button class="consult-popup-close" type="button" aria-label="Close consultation form" data-consult-close>
+      <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+    </button>
+
+    <div class="consult-popup-visual" aria-hidden="true">
+      <img src="/images/hero-dining-ai.webp" alt="">
+      <img class="consult-popup-before" src="/images/hero-dining-ai.webp" alt="">
+      <div class="consult-popup-seam"><span>VS</span></div>
+      <div class="consult-popup-idea">
+        <p>Your Idea</p>
+        <p>Our Design</p>
+      </div>
+      <div class="consult-popup-labels">
+        <span>Simple Idea</span>
+        <span>Our Design</span>
+      </div>
+      <div class="consult-popup-caption">
+        <strong>A simple idea becomes premium with the right design.</strong>
+        <span>Layout&nbsp; | &nbsp;Storage&nbsp; | &nbsp;Lighting&nbsp; | &nbsp;Finish</span>
+        <b>Upgrade Your Home Interiors</b>
+      </div>
+    </div>
+
+    <div class="consult-popup-content">
+      <p class="consult-popup-kicker">Let's create your dream space</p>
+      <h2 id="consultPopupTitle">Get a free design<br>consultation</h2>
+
+      <form class="consult-popup-form" data-ajax-contact data-popup-consult action="/contact" method="POST">
+        <input type="hidden" name="email" value="website-popup@foreverdreamspaces.in">
+        <input type="hidden" name="message" value="Consultation requested from website popup.">
+
+        <fieldset class="consult-popup-group">
+          <legend>Property Category</legend>
+          <div class="consult-choice-grid consult-choice-grid-2">
+            <label><input type="radio" name="service" value="Residential Interior Design" checked><span>Residential</span></label>
+            <label><input type="radio" name="service" value="Commercial Interior Design"><span>Commercial</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="consult-popup-group">
+          <legend>Configuration</legend>
+          <div class="consult-choice-grid consult-choice-grid-4">
+            <label><input type="radio" name="configuration" value="1 BHK"><span>1 BHK</span></label>
+            <label><input type="radio" name="configuration" value="2 BHK" checked><span>2 BHK</span></label>
+            <label><input type="radio" name="configuration" value="3 BHK"><span>3 BHK</span></label>
+            <label><input type="radio" name="configuration" value="4+ BHK"><span>4+ BHK</span></label>
+            <label class="consult-choice-wide"><input type="radio" name="configuration" value="Villa"><span>Villa</span></label>
+          </div>
+        </fieldset>
+
+        <label class="consult-popup-field">
+          <span class="sr-only">Property Location</span>
+          <select name="city" required>
+            <option value="" selected disabled>Property Location</option>
+            <option>Delhi</option>
+            <option>Noida</option>
+            <option>Greater Noida</option>
+            <option>Ghaziabad</option>
+            <option>Gurugram</option>
+            <option>Faridabad</option>
+            <option>Other</option>
+          </select>
+        </label>
+
+        <label class="consult-popup-field">
+          <span class="sr-only">Name</span>
+          <input type="text" name="name" placeholder="Name" autocomplete="name" required maxlength="120">
+        </label>
+
+        <div class="consult-popup-phone">
+          <span>+91</span>
+          <label>
+            <span class="sr-only">Mobile Number</span>
+            <input type="tel" name="phone" placeholder="Mobile Number" autocomplete="tel" inputmode="numeric" required maxlength="20">
+          </label>
+        </div>
+
+        <button type="submit" class="consult-popup-submit">Book a Free Consultation</button>
+        <div class="form-status" aria-live="polite"></div>
+        <p class="consult-popup-note">By submitting, you agree to be contacted about your project.</p>
+      </form>
+    </div>
+  </div>
+</div>

@@ -22,6 +22,7 @@ export const PLACEHOLDER_IMAGES = {
   heroResidential: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1800&auto=format&fit=crop',
   heroCommercial: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1800&auto=format&fit=crop',
   heroProjects: 'https://images.unsplash.com/photo-1600585152220-90363fe7e115?q=80&w=1800&auto=format&fit=crop',
+  heroGallery: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1800&auto=format&fit=crop',
   heroBlog: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=1800&auto=format&fit=crop',
   heroContact: 'https://images.unsplash.com/photo-1615873968403-89e068629265?q=80&w=1800&auto=format&fit=crop',
   gallery: [
@@ -44,6 +45,7 @@ export const PLACEHOLDER_IMAGES = {
 
 export const NAV_LINKS = [
   { href: '/', label: 'Home', key: 'home' },
+  { href: '/gallery', label: 'Design Gallery', key: 'gallery' },
   { href: '/about', label: 'About Us', key: 'about' },
   {
     href: '/services',
@@ -66,6 +68,44 @@ export const PROJECTS = [
   { slug: 'cafe-mocha-lounge', title: 'Café Mocha Lounge', category: 'Commercial', location: 'Delhi NCR', image: PLACEHOLDER_IMAGES.gallery[3], desc: 'A cosy, Instagram-ready café interior with warm lighting and reclaimed wood.' },
   { slug: 'minimalist-3bhk', title: 'Minimalist 3BHK', category: 'Residential', location: 'Greater Noida West', image: PLACEHOLDER_IMAGES.gallery[4], desc: 'Clean lines, hidden storage and a neutral palette for a young family home.' },
   { slug: 'boutique-retail-store', title: 'Boutique Retail Store', category: 'Commercial', location: 'Noida', image: PLACEHOLDER_IMAGES.gallery[5], desc: 'A retail experience built around product storytelling and soft-touch materials.' },
+];
+
+// Design Gallery — AI-generated placeholder renders standing in for real
+// project photography. Swap these out once real shoots are ready; each item
+// keeps its own `image` field so replacing one is a one-line change.
+export const GALLERY_CATEGORIES = ['All', 'Modular Kitchen', 'Living Room', 'Bedroom', 'Wardrobe', 'Kids Bedroom', 'Bathroom', 'Home Office'];
+
+const galleryImg = PLACEHOLDER_IMAGES.gallery;
+
+export const GALLERY_ITEMS = [
+  { title: 'Sage Green Modular Kitchen With Open Shelving', category: 'Modular Kitchen', image: galleryImg[0] },
+  { title: 'A Blue Modular Kitchen With A Tiled Backsplash', category: 'Modular Kitchen', image: galleryImg[1] },
+  { title: 'Blush Pink Modular Kitchen With Sleek Handles', category: 'Modular Kitchen', image: galleryImg[2] },
+  { title: 'Matte Black Island Kitchen With Brass Accents', category: 'Modular Kitchen', image: galleryImg[3] },
+
+  { title: 'Living Room Design 1', category: 'Living Room', image: galleryImg[4] },
+  { title: 'Living Room Design 6', category: 'Living Room', image: galleryImg[5] },
+  { title: 'Living Room Design 9', category: 'Living Room', image: galleryImg[6] },
+  { title: 'Warm Neutral Living Room With Feature Wall', category: 'Living Room', image: galleryImg[7] },
+
+  { title: 'Bedroom Design 1', category: 'Bedroom', image: galleryImg[0] },
+  { title: 'Bedroom Design 6', category: 'Bedroom', image: galleryImg[8] },
+  { title: 'Bedroom Design 12', category: 'Bedroom', image: galleryImg[1] },
+  { title: 'Soft Grey Bedroom With Upholstered Headboard', category: 'Bedroom', image: galleryImg[2] },
+
+  { title: 'Walk-In Wardrobe With Glass Shutters', category: 'Wardrobe', image: galleryImg[3] },
+  { title: 'Sliding Door Wardrobe With Mirror Finish', category: 'Wardrobe', image: galleryImg[4] },
+  { title: 'Loft Wardrobe With Warm Wood Laminate', category: 'Wardrobe', image: galleryImg[5] },
+
+  { title: 'Playful Bunk-Bed Kids Bedroom', category: 'Kids Bedroom', image: galleryImg[6] },
+  { title: 'Pastel Themed Kids Bedroom With Study Nook', category: 'Kids Bedroom', image: galleryImg[7] },
+  { title: 'Space-Saving Kids Bedroom With Loft Bed', category: 'Kids Bedroom', image: galleryImg[8] },
+
+  { title: 'Spa-Style Bathroom With Rain Shower', category: 'Bathroom', image: galleryImg[0] },
+  { title: 'Marble Finish Bathroom With Floating Vanity', category: 'Bathroom', image: galleryImg[1] },
+
+  { title: 'Minimal Home Office With Built-In Shelving', category: 'Home Office', image: galleryImg[2] },
+  { title: 'Cosy Work-From-Home Corner With Warm Lighting', category: 'Home Office', image: galleryImg[3] },
 ];
 
 export const BLOG_POSTS = [

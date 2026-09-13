@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>{{> head}}</head>
+<body>
+{{> nav}}
+
+{{> page-hero image=img.heroGallery crumb="Design Gallery" eyebrow="Design Gallery" heading="Interior design ideas for every room" subtitle="Browse renders by room type to get inspiration for your own space."}}
+
+<section>
+  <div class="container">
+    <div class="filter-bar gallery-filters reveal">
+      {{#each categories}}
+      <button data-filter="{{#if (eq this 'All')}}all{{else}}{{this}}{{/if}}" class="{{#if (eq this 'All')}}active{{/if}}">{{this}}</button>
+      {{/each}}
+    </div>
+
+    <h2 id="galleryHeading" class="gallery-heading reveal">All Designs</h2>
+
+    <div class="grid-3 gallery-grid">
+      {{#each items}}
+      <div class="gallery-card reveal" data-category="{{category}}">
+        <div class="gallery-img">
+          <img src="{{image}}" alt="{{title}}" loading="lazy">
+        </div>
+        <div class="gallery-card-body">
+          <h3>{{title}}</h3>
+          <a href="/contact" class="btn btn-primary btn-block">Get a Quote</a>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</section>
+
+{{> footer}}
+<script src="/js/main.js"></script>
+</body>
+</html>

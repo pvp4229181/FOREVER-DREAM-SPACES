@@ -4,6 +4,8 @@ import {
   PLACEHOLDER_IMAGES,
   NAV_LINKS,
   PROJECTS,
+  GALLERY_CATEGORIES,
+  GALLERY_ITEMS,
   BLOG_POSTS,
   TESTIMONIALS,
   STATS,
@@ -65,6 +67,16 @@ export class SiteController {
     return {
       ...base('services', 'Commercial Interior Design', 'Offices, retail and hospitality interiors engineered for brand, productivity and experience.'),
       projects: PROJECTS.filter((p: (typeof PROJECTS)[number]) => p.category === 'Commercial'),
+    };
+  }
+
+  @Get('gallery')
+  @Render('pages/gallery')
+  gallery() {
+    return {
+      ...base('gallery', 'Design Gallery', 'Browse interior design renders by room — modular kitchens, living rooms, bedrooms, wardrobes, kids bedrooms, bathrooms and home offices.'),
+      categories: GALLERY_CATEGORIES,
+      items: GALLERY_ITEMS,
     };
   }
 

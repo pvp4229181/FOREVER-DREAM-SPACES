@@ -15,7 +15,7 @@ if (navToggle && mainNav) {
   if (navBackdrop) {
     navBackdrop.addEventListener('click', () => setNavOpen(false));
   }
-  mainNav.querySelectorAll('li:not(.has-children) > a').forEach((link) => {
+  mainNav.querySelectorAll('li:not(.has-children) > a, .mobile-nav-cta').forEach((link) => {
     link.addEventListener('click', () => setNavOpen(false));
   });
   mainNav.querySelectorAll('li.has-children > a').forEach((link) => {
@@ -60,6 +60,8 @@ if (filterBar) {
       const match = filter === 'all' || card.dataset.category === filter;
       card.style.display = match ? '' : 'none';
     });
+    const galleryHeading = document.getElementById('galleryHeading');
+    if (galleryHeading) galleryHeading.textContent = `${btn.textContent.trim()} Designs`;
   });
 }
 
@@ -67,6 +69,11 @@ if (filterBar) {
 document.querySelectorAll('form[data-ajax-contact]').forEach((form) => {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    if (form.matches('[data-popup-consult]')) {
+      const configuration = form.querySelector('input[name="configuration"]:checked')?.value ?? 'Not specified';
+      const location = form.elements.city?.value ?? 'Not specified';
+      form.elements.message.value = `Popup consultation request. Configuration: ${configuration}. Location: ${location}.`;
+    }
     const status = form.querySelector('.form-status');
     const submitBtn = form.querySelector('button[type="submit"]');
     const original = submitBtn ? submitBtn.textContent : '';
@@ -87,6 +94,9 @@ document.querySelectorAll('form[data-ajax-contact]').forEach((form) => {
         status.className = 'form-status success';
       }
       form.reset();
+      if (form.matches('[data-popup-consult]')) {
+        window.setTimeout(() => window.closeConsultationPopup?.(), 1200);
+      }
     } catch (err) {
       if (status) {
         status.textContent = 'Something went wrong. Please call or WhatsApp us directly.';
@@ -100,6 +110,35 @@ document.querySelectorAll('form[data-ajax-contact]').forEach((form) => {
     }
   });
 });
+
+// On-load consultation popup
+const consultPopup = document.getElementById('consultPopup');
+if (consultPopup) {
+  const closeButton = consultPopup.querySelector('[data-consult-close]');
+  let lastFocusedElement = null;
+
+  const setConsultPopupOpen = (isOpen) => {
+    consultPopup.classList.toggle('is-open', isOpen);
+    consultPopup.setAttribute('aria-hidden', String(!isOpen));
+    document.body.classList.toggle('consult-popup-open', isOpen);
+    if (isOpen) {
+      lastFocusedElement = document.activeElement;
+      window.setTimeout(() => closeButton?.focus(), 350);
+    } else if (lastFocusedElement instanceof HTMLElement) {
+      lastFocusedElement.focus();
+    }
+  };
+
+  window.closeConsultationPopup = () => setConsultPopupOpen(false);
+  closeButton?.addEventListener('click', () => setConsultPopupOpen(false));
+  consultPopup.addEventListener('click', (event) => {
+    if (event.target === consultPopup) setConsultPopupOpen(false);
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && consultPopup.classList.contains('is-open')) setConsultPopupOpen(false);
+  });
+  window.addEventListener('load', () => window.setTimeout(() => setConsultPopupOpen(true), 450));
+}
 
 // Header shadow on scroll
 const header = document.getElementById('siteHeader');
